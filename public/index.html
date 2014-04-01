@@ -9,12 +9,16 @@
 
 	<script type="text/template" id="home-template">
 	    <h1>/</h1>
-	    <%= greeting %>
+	    <form id="new-drank">
+		    <input type="text" name="name" placeholder="name" />
+		    <input type="text" name="grapes" placeholder="grapes" />
+		    <button type="submit">add drankkk</button>
+	    </form>
 	</script>
 
 	<script type="text/template" id="drink-detail-template">
 	    <h1>dd</h1>
-	    <%= greeting %>
+	    <%= _id %> / <%= name %> / <%= country %>
 	</script>
 
 	<script src="/bower_components/jquery/dist/jquery.js"></script>

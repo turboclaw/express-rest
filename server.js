@@ -1,7 +1,7 @@
 var express = require("express");
-var path = require('path')
-var http = require('http')
-var drinks = require("./routes/drinks")
+var path = require('path');
+var http = require('http');
+var drinks = require("./routes/drinks");
 
 var app = express();
 
