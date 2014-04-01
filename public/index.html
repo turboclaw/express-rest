@@ -10,15 +10,18 @@
 	<script type="text/template" id="home-template">
 	    <h1>/</h1>
 	    <form id="new-drank">
-		    <input type="text" name="name" placeholder="name" />
-		    <input type="text" name="grapes" placeholder="grapes" />
-		    <button type="submit">add drankkk</button>
+		    <div><input type="text" name="name" placeholder="name" /></div>
+		    <div><input type="text" name="aged" placeholder="aged" /></div>
+		    <div><input type="text" name="proof" placeholder="proof" /></div>
+		    <div><input type="text" name="founder" placeholder="founder" /></div>
+		    <div><input type="text" name="location" placeholder="location" /></div>
+		    <div><button type="submit">add drankkk</button></div>
 	    </form>
 	</script>
 
 	<script type="text/template" id="drink-detail-template">
 	    <h1>dd</h1>
-	    <%= _id %> / <%= name %> / <%= country %>
+	    <%= _id %> / <%= name %> / <%= aged %> / <%= proof %> / <%= founder %> / <%= location %>
 	</script>
 
 	<script src="/bower_components/jquery/dist/jquery.js"></script>

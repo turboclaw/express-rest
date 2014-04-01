@@ -89,28 +89,32 @@ var populateDB = function() {
 
 	console.log("populate");
 	
- 	var wines = [
- 	{
- 	    name: "CHATEAU DE SAINT COSME",
- 	    year: "2009",
- 	    grapes: "Grenache / Syrah",
- 	    country: "France",
- 	    region: "Southern Rhone",
- 	    description: "The aromas of fruit and spice...",
- 	    picture: "saint_cosme.jpg"
- 	},
- 	{
- 	    name: "LAN RIOJA CRIANZA",
- 	    year: "2006",
- 	    grapes: "Tempranillo",
- 	    country: "Spain",
- 	    region: "Rioja",
- 	    description: "A resurgence of interest in boutique vineyards...",
- 	    picture: "lan_rioja.jpg"
- 	}];
- 
- 	db.collection('drinks', function(err, collection) {
- 	    collection.insert(wines, {safe:true}, function(err, result) {});
- 	});
- 
+	var bourbon = [
+		{
+			name: "Knob Creek Single Barrel",
+			aged: 9,
+			proof: 120,
+			founder: "Booker Noe",
+			location: "Clermont, KY"
+		},
+		{
+			name: "Baker's",
+			aged: 7,
+			proof: 107,
+			founder: "Booker Noe",
+			location: "Clermont, KY"
+		},
+		{
+			name: "Woodford Reserve",
+			aged: 7,
+			proof: 80,
+			founder: "Brown-Forman",
+			location: "Versailles, KY"
+		}
+	];
+
+	db.collection('drinks', function(err, collection) {
+		collection.insert(bourbon, {safe:true}, function(err, result) {});
+	});
+
 };

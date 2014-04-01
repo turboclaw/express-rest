@@ -5,12 +5,10 @@ window.DrinkModel = Backbone.Model.extend({
 	defaults: {
 		_id: null,
 		name: "",
-		grapes: "",
-		country: "USA",
-		region: "California",
-		year: "",
-		description: "",
-		picture: null
+		aged: "",
+		proof: "",
+		founder: "",
+		location: "KY"
 	}
 });
 

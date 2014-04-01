@@ -12,11 +12,15 @@ var HomeView = Backbone.View.extend({
 	addANewOne: function(e) {
 		var formData = {
 			name: $("[name='name']", this.el).val(),
-			grapes: $("[name='grapes']", this.el).val()
+			aged: $("[name='aged']", this.el).val(),
+			proof: $("[name='proof']", this.el).val(),
+			founder: $("[name='founder']", this.el).val(),
+			location: $("[name='location']", this.el).val()
 		}
 		this.model.save(formData, {
 			success: function() {
 				console.log("saved");
+				$("input[type='text']", this.el).val("")
 			}
 		});
 		e.preventDefault();
