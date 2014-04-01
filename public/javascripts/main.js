@@ -10,7 +10,15 @@ var HomeView = Backbone.View.extend({
 		"submit #new-drank": "addANewOne"
 	},
 	addANewOne: function(e) {
-		console.log( $(e.currentTarget).serializeArray() );
+		var formData = {
+			name: $("[name='name']", this.el).val(),
+			grapes: $("[name='grapes']", this.el).val()
+		}
+		this.model.save(formData, {
+			success: function() {
+				console.log("saved");
+			}
+		});
 		e.preventDefault();
 	}
 });
@@ -34,7 +42,10 @@ var AppRouter = Backbone.Router.extend({
 	},
 
 	home: function() {
-		var homeView = new HomeView();
+		var drink = new DrinkModel();
+		var homeView = new HomeView({
+			model: drink
+		});
 		$("#content").html(homeView.el);
 	},
 	details: function(id) {
