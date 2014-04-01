@@ -24,6 +24,15 @@
 	    <%= _id %> / <%= name %> / <%= aged %> / <%= proof %> / <%= founder %> / <%= location %>
 	</script>
 
+	<script type="text/template" id="drink-list-template">
+	    <h1>li</h1>
+	    <ul id="list-em">
+	    <% _.each( drinks, function(drink) { %>
+	    	<li><a href="/#drinks/<%= drink._id %>"><%= drink._id %> / <%= drink.name %> / <%= drink.aged %> / <%= drink.proof %> / <%= drink.founder %> / <%= drink.location %></a></li>
+	    <% }); %>
+	    </ul>
+	</script>
+
 	<script src="/bower_components/jquery/dist/jquery.js"></script>
 	<script src="/bower_components/underscore/underscore.js"></script>
 	<script src="/bower_components/backbone/backbone.js"></script>

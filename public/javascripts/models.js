@@ -13,6 +13,6 @@ window.DrinkModel = Backbone.Model.extend({
 });
 
 window.DrinkCollection = Backbone.Collection.extend({
-	model: "DrinkModel",
+	model: DrinkModel,
 	url: "/drinks"
 });

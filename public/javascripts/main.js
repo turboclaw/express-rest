@@ -37,6 +37,16 @@ var DrinkDetail = Backbone.View.extend({
 	}
 });
 
+var DrinkListView = Backbone.View.extend({
+	template: _.template( $("#drink-list-template").html() ),
+	initialize: function() {
+		this.listenTo(this.collection, "sync", this.render);
+	},
+	render: function() {
+		this.$el.html( this.template( {drinks: this.collection.toJSON()} ) );
+	}
+});
+
 var AppRouter = Backbone.Router.extend({
 	routes: {
 		"": "home",
@@ -51,6 +61,16 @@ var AppRouter = Backbone.Router.extend({
 			model: drink
 		});
 		$("#content").html(homeView.el);
+	},
+	list: function() {
+		var drinkCollection = new DrinkCollection();
+		drinkCollection.fetch({
+			success: function(data) {
+				$("#content").html(new DrinkListView({
+					collection: drinkCollection
+				}).el);
+			}
+		});
 	},
 	details: function(id) {
 		var drink = new DrinkModel({
