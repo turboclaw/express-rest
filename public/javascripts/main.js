@@ -16,7 +16,7 @@ var HomeView = Backbone.View.extend({
 			proof: $("[name='proof']", this.el).val(),
 			founder: $("[name='founder']", this.el).val(),
 			location: $("[name='location']", this.el).val()
-		}
+		};
 		this.model.save(formData, {
 			success: function() {
 				console.log("saved");
@@ -36,7 +36,24 @@ var DrinkDetail = Backbone.View.extend({
 		this.$el.html( this.template( this.model.toJSON() ) );
 	},
 	events: {
+		"submit #update-drank": "updateThatDrinkGuys",
 		"click #delete-drink": "zapThatDrink"
+	},
+	updateThatDrinkGuys: function(e) {
+		var formData = {
+			name: $("[name='name']", this.el).val(),
+			aged: $("[name='aged']", this.el).val(),
+			proof: $("[name='proof']", this.el).val(),
+			founder: $("[name='founder']", this.el).val(),
+			location: $("[name='location']", this.el).val()
+		};
+		this.model.save(formData, {
+			success: function() {
+				console.log("saved");
+				$("input[type='text']", this.el).val("")
+			}
+		});
+		e.preventDefault();
 	},
 	zapThatDrink: function() {
 		this.model.destroy({

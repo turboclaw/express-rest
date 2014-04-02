@@ -56,11 +56,12 @@ exports.addDrink = function(req, res) {
 exports.updateDrink = function(req, res) {
 	var id = req.params.id;
 	var drink = req.body;
+	delete drink._id;
 	console.log("updating drink" + id +  JSON.stringify(drink));
 	db.collection("drinks", function(err, collection) {
 		collection.update({"_id": new BSON.ObjectID(id)}, drink, {safe: true}, function(err, result) {
 			if(err) {
-				console.log("errr updating drink");
+				console.log("err: " + err);
 				res.send({"error": "oh no update"});
 			} else {
 				console.log("success update!" + result + "docs updated");
