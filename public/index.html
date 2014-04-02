@@ -9,30 +9,38 @@
 	<div id="content">...</div>
 
 	<script type="text/template" id="home-template">
-	    <h1>/</h1>
-	    <form id="new-drank">
-		    <div><input type="text" name="name" placeholder="name" /></div>
-		    <div><input type="text" name="aged" placeholder="aged" /></div>
-		    <div><input type="text" name="proof" placeholder="proof" /></div>
-		    <div><input type="text" name="founder" placeholder="founder" /></div>
-		    <div><input type="text" name="location" placeholder="location" /></div>
-		    <div><button type="submit">add drankkk</button></div>
-	    </form>
+		<h1>/</h1>
+		<form id="new-drank">
+			<div><input type="text" name="name" placeholder="name" /></div>
+			<div><input type="text" name="aged" placeholder="aged" /></div>
+			<div><input type="text" name="proof" placeholder="proof" /></div>
+			<div><input type="text" name="founder" placeholder="founder" /></div>
+			<div><input type="text" name="location" placeholder="location" /></div>
+			<div><button type="submit">add drankkk</button></div>
+		</form>
 	</script>
 
 	<script type="text/template" id="drink-detail-template">
-	    <h1>dd</h1>
-	    <p><%= _id %> / <%= name %> / <%= aged %> / <%= proof %> / <%= founder %> / <%= location %></p>
-	    <button type="button" id="delete-drink">zap!</button>
+		<h1>dd <%= _id %></h1>
+		<form id="update-drank">
+			<div><input type="text" name="name" placeholder="name" value="<%= name %>" /></div>
+			<div><input type="text" name="aged" placeholder="aged" value="<%= aged %>" /></div>
+			<div><input type="text" name="proof" placeholder="proof" value="<%= proof %>" /></div>
+			<div><input type="text" name="founder" placeholder="founder" value="<%= founder %>" /></div>
+			<div><input type="text" name="location" placeholder="location" value="<%= location %>" /></div>
+			<div><button type="submit">update drankkk</button></div>
+		</form>
+
+		<p><button type="button" id="delete-drink">zap!</button></p>
 	</script>
 
 	<script type="text/template" id="drink-list-template">
-	    <h1>li</h1>
-	    <ul id="list-em">
-	    <% _.each( drinks, function(drink) { %>
-	    	<li><a href="/#drinks/<%= drink._id %>"><%= drink._id %> / <%= drink.name %> / <%= drink.aged %> / <%= drink.proof %> / <%= drink.founder %> / <%= drink.location %></a></li>
-	    <% }); %>
-	    </ul>
+		<h1>li</h1>
+		<ul id="list-em">
+		<% _.each( drinks, function(drink) { %>
+			<li><a href="/#drinks/<%= drink._id %>"><%= drink._id %> / <%= drink.name %> / <%= drink.aged %> / <%= drink.proof %> / <%= drink.founder %> / <%= drink.location %></a></li>
+		<% }); %>
+		</ul>
 	</script>
 
 	<script src="/bower_components/jquery/dist/jquery.js"></script>
