@@ -74,10 +74,11 @@ exports.deleteDrink = function(req, res) {
 	var id = req.params.id;
 	console.log("deleting drink" + id);
 	db.collection("drinks", function(err, collection) {
-		collection.remove({"id": new BSON.ObjectID(id)}, drink, {safe:true}, function(err, result) {
+		collection.remove({"_id": new BSON.ObjectID(id)}, {safe:true}, function(err, result) {
 			if(err) {
 				res.send({"error": "error deleting!" + err});
 			} else {
+				console.log("deleted???");
 				res.send(req.body);
 			}
 		});
