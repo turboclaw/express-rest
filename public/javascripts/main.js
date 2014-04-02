@@ -34,6 +34,16 @@ var DrinkDetail = Backbone.View.extend({
 	},
 	render: function() {
 		this.$el.html( this.template( this.model.toJSON() ) );
+	},
+	events: {
+		"click #delete-drink": "zapThatDrink"
+	},
+	zapThatDrink: function() {
+		this.model.destroy({
+			success: function() {
+				appRouter.navigate("", true);
+			}
+		});
 	}
 });
 
