@@ -4,6 +4,7 @@ var Db = mongo.Db;
 var BSON = mongo.BSONPure;
 
 var server = new Server("localhost", 27017, {
+	safe: false,
 	auto_reconnect: true
 });
 var db = new Db("drinkdb", server);
@@ -17,6 +18,8 @@ db.open(function(err, db) {
 				populateDB();
 			}
 		});
+	} else {
+		console.log("can't connect to db", err);
 	}
 });
 
